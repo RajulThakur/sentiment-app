@@ -1,18 +1,31 @@
+import { ButtonHTMLAttributes, ReactNode } from "react";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  children?: React.ReactNode;
+type Theme = "base" | "transparent" | "none";
+const styles: Record<Theme, string> = {
+  base: "bg-slate-200 text-slate-900 font-medium rounded-md px-5 py-2 transition-colors hover:bg-slate-300 focus:outline-none dark:bg-slate-700 dark:text-slate-100 dark:hover:bg-slate-600 ",
+  none: "",
+  transparent:
+    "text-slate-900 font-medium rounded-md p-2 transition-colors hover:bg-slate-300 focus:outline-none dark:text-slate-100 dark:hover:bg-slate-800 active:scale-[0.97] active:translate-y-[1px]  ",
+};
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children?: ReactNode;
+  theme?: Theme;
+  isDisable?: boolean;
 }
-
-const baseStyles="bg-slate-200 text-slate-900 font-medium rounded-md px-5 py-2 transition-colors hover:bg-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-40 dark:bg-slate-700 dark:text-slate-100 dark:hover:bg-slate-600 dark:focus:ring-slate-500"
 
 export default function Button({
   children,
+  theme = "base",
   className = "",
+  isDisable = false,
   ...props
 }: ButtonProps) {
   return (
     <button
-      className={`${baseStyles} ${className}`}
+      disabled={isDisable}
+      className={`${styles[theme]} ${
+        isDisable ? "cursor-not-allowed opacity-80 " : "cursor-pointer"
+      } ${className}`}
       {...props}>
       {children}
     </button>
