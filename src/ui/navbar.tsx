@@ -7,7 +7,7 @@ export default function Navbar() {
     console.log('click')
   }
   return (
-    <nav className="flex fixed top-4 bg-slate-200 dark:bg-slate-900 px-8 rounded-3xl left-4 right-4 h-18 justify-between ">
+    <nav className="flex z-10 fixed top-4 bg-slate-200 dark:bg-slate-900 px-8 rounded-3xl left-4 right-4 h-18 justify-between ">
       <div className=" flex items-center cursor-pointer">
         <img src="/logo.svg" alt="Sentiment Analysis" className="w-48" />
       </div>

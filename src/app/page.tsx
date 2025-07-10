@@ -27,9 +27,9 @@ export default function Page() {
       }
     }
   return (
-    <div className='w-dvw h-dvh p-4 bg-slate-100 dark:bg-black flex justify-center flex-col items-center'>
+    <div className='p-4 lg:h-dvh bg-slate-100 dark:bg-black flex justify-center flex-col items-center'>
       <Navbar />
-      <div className="grid w-auto px-8 grid-cols-2 h-full max-h-96 gap-10 justify-center">
+      <div className="flex flex-col lg:grid w-full pt-30 lg:pt-1 px-2 lg:px-8 grid-cols-2 h-full lg:max-h-96 gap-10 justify-center">
         <Textarea sendRequest={sendPostRequest} isLoading={isLoading} />
         <Result isLoading={isLoading} result={result}/>
       </div>
