@@ -19,17 +19,17 @@ async function handleSubmit(e:FormEvent<HTMLFormElement>) {
     <form
       onSubmit={handleSubmit}
       id="input-text"
-      className='w-full flex flex-col items-center gap-1 h-full bg-slate-100  dark:bg-gradient-to-br from-slate-900 to-slate-800 border-2 border-slate-100 dark:border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-lg font-mono text-sm backdrop-blur-sm'>
+      className='w-full flex flex-col items-center gap-1 h-full bg-slate-50  dark:bg-gradient-to-br from-slate-900 to-slate-800 border-2 border-slate-100 dark:border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-lg font-mono text-sm backdrop-blur-sm'>
       <textarea
         id='text-sentiment'
-        className='flex-1 outline-none   placeholder-slate-400  p-4 resize-none w-full '
+        className='flex-1 outline-none text-slate-800 dark:text-slate-100  placeholder-slate-800 dark:placeholder-slate-400  p-4 resize-none w-full '
         placeholder='Write here...'
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
       <Button
         type='submit'
-        className='flex items-center text-lg hover:bg-slate-800 rounded-b-lg transition-colors text-slate-900 dark:text-slate-100 py-2 h-auto gap-2 w-full justify-center disabled:opacity-60 disabled:cursor-not-allowed'
+        className='flex items-center text-lg hover:bg-slate-100 dark:hover:bg-slate-800 rounded-b-lg transition-colors text-slate-900 dark:text-slate-100 py-2 h-auto gap-2 w-full justify-center disabled:opacity-60 disabled:cursor-not-allowed'
         theme='none'
         disabled={isLoading}
       >

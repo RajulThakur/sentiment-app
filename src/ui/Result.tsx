@@ -73,7 +73,7 @@ export default function Result({
                 Top Words by Emotion
               </h4>
               <div className='flex flex-wrap gap-3'>
-                {result!.emotions.map((emo, idx) => (
+                {result!.emotions.map((emo) => (
                   <div
                     key={emo.emotion}
                     className='flex flex-col items-center'>
