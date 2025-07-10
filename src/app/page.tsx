@@ -1,14 +1,37 @@
+'use client'
+import { BACKEND_URL } from "@/const/constant";
+import { ResultData } from "@/types/types";
 import Navbar from "@/ui/navbar";
 import Result from "@/ui/Result";
 import Textarea from "@/ui/Textarea";
+import { useState } from "react";
 
 export default function Page() {
+  const [isLoading,setIsLoading]=useState(false);
+  const [result, setResult] = useState<ResultData>();
+    async function sendPostRequest(text: string) {
+      try {
+        setIsLoading(true);
+        const response = await fetch(`${BACKEND_URL}/api/sentiment-analysis`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text }),
+        });
+        const data = await response.json();
+        setResult(data[0]);
+        console.log("Response:", data[0]);
+      } catch (error) {
+        console.error("Error:", error);
+      }finally{
+        setIsLoading(false);
+      }
+    }
   return (
     <div className='w-dvw h-dvh p-4 bg-slate-100 dark:bg-black flex justify-center flex-col items-center'>
       <Navbar />
-      <div className="grid w-full px-8 grid-cols-2 h-full max-h-1/3 gap-10 justify-center">
-        <Textarea />
-        <Result/>
+      <div className="grid w-auto px-8 grid-cols-2 h-full max-h-96 gap-10 justify-center">
+        <Textarea sendRequest={sendPostRequest} isLoading={isLoading} />
+        <Result isLoading={isLoading} result={result}/>
       </div>
     </div>
   );
