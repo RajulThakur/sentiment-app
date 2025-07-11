@@ -216,6 +216,21 @@ display_completion() {
 
     print_message "🎉 Both frontend and backend have been installed successfully!" $GREEN
     echo ""
+
+    # Prominent API key warning
+    echo "⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️"
+    print_message "                  🚨 IMPORTANT: GEMINI API KEY REQUIRED 🚨" $RED
+    echo "⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️"
+    echo ""
+    print_message "❌ BEFORE RUNNING THE APPLICATION, YOU MUST:" $RED
+    print_message "   1. Get your GEMINI API key from: https://aistudio.google.com/" $YELLOW
+    print_message "   2. Edit the file: backend-sentience/.env" $YELLOW
+    print_message "   3. Replace the placeholder with your actual API key:" $YELLOW
+    print_message "      GEMINI_API=your_actual_api_key_here" $YELLOW
+    echo ""
+    print_message "💡 Without the API key, the backend will NOT work!" $RED
+    echo ""
+
     print_message "📁 Project Structure:" $BLUE
     print_message "  ├── sentiment-app/          (Frontend - Next.js)" $NC
     print_message "  ├── backend-sentience/       (Backend - FastAPI)" $NC
@@ -223,13 +238,7 @@ display_completion() {
     print_message "  ├── start-backend.sh         (Start backend only)" $NC
     print_message "  └── start-all.sh             (Start both services)" $NC
     echo ""
-    print_message "🔧 Environment Files Created:" $BLUE
-    print_message "  ├── sentiment-app/.env.local" $NC
-    print_message "  │   └── NEXT_PUBLIC_BACKEND_URL=$BACKEND_URL" $NC
-    print_message "  └── backend-sentience/.env" $NC
-    print_message "      └── GEMINI_API=You are an expert engineer..." $NC
-    echo ""
-    print_message "🚀 To start the applications:" $BLUE
+    print_message "🚀 To start the applications (AFTER setting up API key):" $BLUE
     print_message "  Option 1 - Start both automatically:" $NC
     print_message "    ./start-all.sh" $NC
     echo ""
