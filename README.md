@@ -10,20 +10,20 @@ A full-stack sentiment analysis application with a Next.js frontend and FastAPI 
 
 ```bash
 # Download and run the automated installation script
+mkdir sentienceq && cd sentienceq
 curl -O https://raw.githubusercontent.com/RajulThakur/sentiment-app/main/install.sh
 chmod +x install.sh
 ./install.sh
 ```
 
-**Or if you already have the repository:**
+## 🎯 After Installation
 
+Once the automated installation completes, you can start the applications:
+
+### **Start Both Automatically**
 ```bash
-git clone https://github.com/RajulThakur/sentiment-app.git
-cd sentiment-app
-chmod +x install.sh
-./install.sh
+./start-all.sh
 ```
-
 The script will automatically:
 - ✅ Install both frontend and backend
 - ✅ Create environment files with proper configuration
@@ -38,14 +38,6 @@ The script will automatically:
 - **pip** (Python package manager)
 - **Git**
 
-## 🎯 After Installation
-
-Once the automated installation completes, you can start the applications:
-
-### **Start Both Automatically**
-```bash
-./start-all.sh
-```
 
 ## 🌐 Access URLs
 

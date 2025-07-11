@@ -233,20 +233,10 @@ display_completion() {
     print_message "  Option 1 - Start both automatically:" $NC
     print_message "    ./start-all.sh" $NC
     echo ""
-    print_message "  Option 2 - Start manually:" $NC
-    print_message "    Terminal 1: ./start-backend.sh" $NC
-    print_message "    Terminal 2: ./start-frontend.sh" $NC
-    echo ""
-    print_message "  Option 3 - Manual commands:" $NC
-    print_message "    Backend:  cd backend-sentience && source venv/bin/activate && uvicorn main:app --reload --host 0.0.0.0 --port 8000" $NC
-    print_message "    Frontend: cd sentiment-app && npm run dev" $NC
-    echo ""
     print_message "📱 Access URLs:" $BLUE
     print_message "  Frontend: http://localhost:3000" $NC
     print_message "  Backend API: http://localhost:8000" $NC
-    print_message "  API Docs: http://localhost:8000/docs" $NC
     echo ""
-    print_message "✨ Happy coding!" $GREEN
 }
 
 # Main installation function
