@@ -1,5 +1,4 @@
 'use client'
-import { BACKEND_URL } from "@/const/constant";
 import { ResultData } from "@/types/types";
 import Navbar from "@/ui/navbar";
 import Result from "@/ui/Result";
@@ -12,7 +11,7 @@ export default function Page() {
     async function sendPostRequest(text: string) {
       try {
         setIsLoading(true);
-        const response = await fetch(`${BACKEND_URL}/api/sentiment-analysis`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/sentiment-analysis`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ text }),

@@ -4,8 +4,7 @@ import Button from "./Button";
 import { useTheme } from "next-themes";
 
 export default function Navbar() {
-  const { systemTheme, theme, setTheme } = useTheme();
-  const currentTheme = theme === "system" ? systemTheme : theme;
+  const { theme, setTheme } = useTheme();
 
   function handleClick() {
     return theme == "dark" ? setTheme("light") : setTheme("dark");
