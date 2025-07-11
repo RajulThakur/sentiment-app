@@ -2,6 +2,8 @@
 
 A full-stack sentiment analysis application with a Next.js frontend and FastAPI backend that analyzes text emotions using machine learning.
 
+## Demo Link ```https://sentienceq.vercel.app/```
+
 ## 🚀 Quick Install (Automated)
 
 **One-command installation for both frontend and backend:**
@@ -40,28 +42,15 @@ The script will automatically:
 
 Once the automated installation completes, you can start the applications:
 
-### **Option 1: Start Both Automatically**
+### **Start Both Automatically**
 ```bash
 ./start-all.sh
-```
-
-### **Option 3: Manual Commands**
-```bash
-# Backend
-cd backend-sentience
-source venv/bin/activate
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
-
-# Frontend (in new terminal)
-cd sentiment-app
-npm run dev
 ```
 
 ## 🌐 Access URLs
 
 - **Frontend**: `http://localhost:3000`
 - **Backend API**: `http://localhost:8000`
-- **API Documentation**: `http://localhost:8000/docs`
 
 ## 📁 Project Structure
 
@@ -96,7 +85,7 @@ NEXT_PUBLIC_BACKEND_URL=https://sentienceq.love-you-orange.site
 
 ### **Backend (.env)**
 ```
-GEMINI_API=You are an expert engineer and your task is to write a new file from scratch.
+GEMINI_API= 
 ```
 
 ## 📖 Manual Installation (Alternative)
@@ -207,31 +196,6 @@ echo "GEMINI_API=your-api-key" > .env
 - CORS settings should be reviewed for production use
 - API keys should be kept secure and not committed to version control
 
-## 📦 Docker Support
-
-For containerized deployment, see the `DOCKER.md` file for comprehensive Docker setup instructions.
-
-## 🤝 Contributing
-
-1. Fork both repositories:
-   - Frontend: https://github.com/RajulThakur/sentiment-app
-   - Backend: https://github.com/RajulThakur/backend-sentience
-
-2. Create feature branches
-3. Make your changes
-4. Submit pull requests to the respective repositories
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
-## 🆘 Support
-
-For issues and questions:
-- **Frontend Issues**: https://github.com/RajulThakur/sentiment-app/issues
-- **Backend Issues**: https://github.com/RajulThakur/backend-sentience/issues
-- **Installation Issues**: Check the troubleshooting section above
-
 ## 🌟 Features
 
 - 🎯 **Real-time Sentiment Analysis** - Analyze text emotions instantly
@@ -244,5 +208,3 @@ For issues and questions:
 - 📈 **Real-time Updates** - Live sentiment analysis results
 
 ---
-
-**Happy analyzing! 🚀**

@@ -17,7 +17,7 @@ FRONTEND_REPO="https://github.com/RajulThakur/sentiment-app.git"
 BACKEND_REPO="https://github.com/RajulThakur/backend-sentience.git"
 FRONTEND_DIR="sentiment-app"
 BACKEND_DIR="backend-sentience"
-BACKEND_URL="https://sentienceq.love-you-orange.site"
+BACKEND_URL="http://0.0.0.0:8000"
 
 # Function to print colored messages
 print_message() {
