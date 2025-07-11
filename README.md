@@ -45,15 +45,6 @@ Once the automated installation completes, you can start the applications:
 ./start-all.sh
 ```
 
-### **Option 2: Start Manually**
-```bash
-# Terminal 1 (Backend)
-./start-backend.sh
-
-# Terminal 2 (Frontend)
-./start-frontend.sh
-```
-
 ### **Option 3: Manual Commands**
 ```bash
 # Backend

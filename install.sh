@@ -70,8 +70,12 @@ check_prerequisites() {
     print_message "✅ Node.js version is compatible: $(node --version)" $GREEN
 
     # Check Python version
-    PYTHON_VERSION=$(python3 --version | cut -d' ' -f2 | cut -d'.' -f1-2)
-    if [ "$(echo "$PYTHON_VERSION 3.8" | awk '{print ($1 < $2)}')" -eq 1 ]; then
+    PYTHON_VERSION=$(python3 --version | cut -d' ' -f2)
+    PYTHON_MAJOR=$(echo "$PYTHON_VERSION" | cut -d'.' -f1)
+    PYTHON_MINOR=$(echo "$PYTHON_VERSION" | cut -d'.' -f2)
+
+    # Check if Python version is >= 3.8
+    if [ "$PYTHON_MAJOR" -lt 3 ] || [ "$PYTHON_MAJOR" -eq 3 -a "$PYTHON_MINOR" -lt 8 ]; then
         print_message "❌ Python version 3.8 or higher is required. Current version: $(python3 --version)" $RED
         exit 1
     fi
