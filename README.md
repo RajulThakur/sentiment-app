@@ -1,210 +1,257 @@
 # Sentiment Analysis App
 
-A modern web application built with Next.js that analyzes the emotional content of text using machine learning. The app provides detailed sentiment analysis with confidence scores and visual representations of detected emotions.
+A full-stack sentiment analysis application with a Next.js frontend and FastAPI backend that analyzes text emotions using machine learning.
 
-## Features
+## 🚀 Quick Install (Automated)
+
+**One-command installation for both frontend and backend:**
+
+```bash
+# Download and run the automated installation script
+curl -O https://raw.githubusercontent.com/RajulThakur/sentiment-app/main/install.sh
+chmod +x install.sh
+./install.sh
+```
+
+**Or if you already have the repository:**
+
+```bash
+git clone https://github.com/RajulThakur/sentiment-app.git
+cd sentiment-app
+chmod +x install.sh
+./install.sh
+```
+
+The script will automatically:
+- ✅ Install both frontend and backend
+- ✅ Create environment files with proper configuration
+- ✅ Set up Python virtual environment
+- ✅ Create startup scripts for easy launching
+- ✅ Verify all prerequisites
+
+## 📋 Prerequisites
+
+- **Node.js** (version 18 or higher)
+- **Python** (version 3.8 or higher)
+- **pip** (Python package manager)
+- **Git**
+
+## 🎯 After Installation
+
+Once the automated installation completes, you can start the applications:
+
+### **Option 1: Start Both Automatically**
+```bash
+./start-all.sh
+```
+
+### **Option 2: Start Manually**
+```bash
+# Terminal 1 (Backend)
+./start-backend.sh
+
+# Terminal 2 (Frontend)
+./start-frontend.sh
+```
+
+### **Option 3: Manual Commands**
+```bash
+# Backend
+cd backend-sentience
+source venv/bin/activate
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
+
+# Frontend (in new terminal)
+cd sentiment-app
+npm run dev
+```
+
+## 🌐 Access URLs
+
+- **Frontend**: `http://localhost:3000`
+- **Backend API**: `http://localhost:8000`
+- **API Documentation**: `http://localhost:8000/docs`
+
+## 📁 Project Structure
+
+```
+project-directory/
+├── sentiment-app/           # Frontend (Next.js)
+│   ├── .env.local          # Environment configuration
+│   ├── src/
+│   │   ├── app/           # Next.js app router
+│   │   ├── components/    # React components
+│   │   └── types/         # TypeScript types
+│   └── package.json
+├── backend-sentience/       # Backend (FastAPI)
+│   ├── .env               # Environment configuration
+│   ├── venv/              # Python virtual environment
+│   ├── main.py            # FastAPI application
+│   └── requirements.txt   # Python dependencies
+├── start-frontend.sh        # Frontend startup script
+├── start-backend.sh         # Backend startup script
+├── start-all.sh            # Combined startup script
+└── install.sh              # Installation script
+```
+
+## 🔧 Environment Configuration
+
+The automated installation creates the following environment files:
+
+### **Frontend (.env.local)**
+```
+NEXT_PUBLIC_BACKEND_URL=https://sentienceq.love-you-orange.site
+```
+
+### **Backend (.env)**
+```
+GEMINI_API=You are an expert engineer and your task is to write a new file from scratch.
+```
+
+## 📖 Manual Installation (Alternative)
+
+If you prefer to install manually:
+
+### 1. Frontend Setup
+```bash
+git clone https://github.com/RajulThakur/sentiment-app.git
+cd sentiment-app
+npm install
+echo "NEXT_PUBLIC_BACKEND_URL=https://sentienceq.love-you-orange.site" > .env.local
+npm run dev
+```
+
+### 2. Backend Setup
+```bash
+git clone https://github.com/RajulThakur/backend-sentience.git
+cd backend-sentience
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+echo "GEMINI_API=You are an expert engineer and your task is to write a new file from scratch." > .env
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
+```
+
+## 🎨 Usage
+
+1. Open your browser and go to `http://localhost:3000`
+2. Enter the text you want to analyze in the text area
+3. Click "Submit" to get sentiment analysis results
+4. View the emotional breakdown with confidence scores and visual charts
+
+## 🔗 API Endpoints
+
+- `POST /api/sentiment-analysis` - Analyze text sentiment
+- `GET /docs` - Interactive API documentation (Swagger UI)
+- `GET /health` - Health check endpoint
+
+## 🛠️ Development
+
+### Frontend Development
+```bash
+cd sentiment-app
+npm run dev          # Development server
+npm run build        # Production build
+npm run start        # Production server
+npm run lint         # Code linting
+```
+
+### Backend Development
+```bash
+cd backend-sentience
+source venv/bin/activate
+uvicorn main:app --reload    # Development server with auto-reload
+python -m pytest            # Run tests (if available)
+```
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+1. **Installation Script Fails**:
+   - Ensure you have all prerequisites installed
+   - Check internet connection for repository cloning
+   - Verify permissions to create files and directories
+
+2. **Frontend Can't Connect to Backend**:
+   - Ensure backend is running on port 8000
+   - Check if the backend URL is correct in `.env.local`
+   - Verify CORS settings in the backend
+
+3. **Python Dependencies Issue**:
+   - Ensure virtual environment is activated
+   - Update pip: `pip install --upgrade pip`
+   - Manually install requirements: `pip install -r requirements.txt`
+
+4. **Node.js Version Issues**:
+   - Ensure Node.js version is 18 or higher
+   - Clear npm cache: `npm cache clean --force`
+   - Delete `node_modules` and reinstall: `rm -rf node_modules && npm install`
+
+5. **Port Conflicts**:
+   - Frontend default port: 3000
+   - Backend default port: 8000
+   - Kill processes using these ports or change ports in configuration
+
+### Environment Variables Issues
+
+If you need to update environment variables:
+
+**Frontend**:
+```bash
+cd sentiment-app
+echo "NEXT_PUBLIC_BACKEND_URL=your-backend-url" > .env.local
+```
+
+**Backend**:
+```bash
+cd backend-sentience
+echo "GEMINI_API=your-api-key" > .env
+```
+
+## 🔒 Security Notes
+
+- The backend URL is configured for production deployment
+- Environment variables are properly configured for security
+- CORS settings should be reviewed for production use
+- API keys should be kept secure and not committed to version control
+
+## 📦 Docker Support
+
+For containerized deployment, see the `DOCKER.md` file for comprehensive Docker setup instructions.
+
+## 🤝 Contributing
+
+1. Fork both repositories:
+   - Frontend: https://github.com/RajulThakur/sentiment-app
+   - Backend: https://github.com/RajulThakur/backend-sentience
+
+2. Create feature branches
+3. Make your changes
+4. Submit pull requests to the respective repositories
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🆘 Support
+
+For issues and questions:
+- **Frontend Issues**: https://github.com/RajulThakur/sentiment-app/issues
+- **Backend Issues**: https://github.com/RajulThakur/backend-sentience/issues
+- **Installation Issues**: Check the troubleshooting section above
+
+## 🌟 Features
 
 - 🎯 **Real-time Sentiment Analysis** - Analyze text emotions instantly
 - 📊 **Visual Results** - Interactive charts showing emotion breakdown
 - 🌙 **Dark/Light Theme** - Toggle between themes for better user experience
 - 📱 **Responsive Design** - Works seamlessly on desktop and mobile
-- ⚡ **Fast Performance** - Built with Next.js 15 and Turbopack
+- ⚡ **Fast Performance** - Built with Next.js 15 and FastAPI
 - 🎨 **Modern UI** - Clean interface with Tailwind CSS
-
-## Tech Stack
-
-- **Frontend**: Next.js 15, React 19, TypeScript
-- **Styling**: Tailwind CSS 4
-- **Charts**: Chart.js with React Chart.js 2
-- **Icons**: Lucide React
-- **Themes**: Next Themes
-
-## Prerequisites
-
-Before installing, make sure you have:
-
-- **Node.js** (version 18 or higher)
-- **npm**, **yarn**, **pnpm**, or **bun**
-- **Backend API** running on port 8000 (see Backend Setup section)
-
-## Installation
-
-### 1. Clone the Repository
-
-```bash
-git clone <repository-url>
-cd sentiment-app
-```
-
-### 2. Install Dependencies
-
-Choose your preferred package manager:
-
-```bash
-# Using npm
-npm install
-
-# Using yarn
-yarn install
-
-# Using pnpm
-pnpm install
-
-# Using bun
-bun install
-```
-
-### 3. Backend Setup
-
-This app requires a backend API running on `http://127.0.0.1:8000`. The backend should provide:
-
-- **Endpoint**: `POST /api/sentiment-analysis`
-- **Request Body**: `{ "text": "your text here" }`
-- **Response Format**:
-```json
-[
-  {
-    "emotions": [
-      {
-        "emotion": "joy",
-        "percent": 85.2,
-        "words": ["happy", "great", "amazing"]
-      },
-      {
-        "emotion": "sadness",
-        "percent": 10.5,
-        "words": ["disappointed"]
-      }
-    ],
-    "confidence": 0.92,
-    "accuracy": 0.88
-  }
-]
-```
-
-If you need to change the backend URL, update the `BACKEND_URL` in `src/const/constant.ts`.
-
-### 4. Run the Development Server
-
-```bash
-# Using npm
-npm run dev
-
-# Using yarn
-yarn dev
-
-# Using pnpm
-pnpm dev
-
-# Using bun
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
-
-## Usage
-
-1. **Enter Text**: Type or paste the text you want to analyze in the textarea
-2. **Submit**: Click the "Submit" button or press Enter
-3. **View Results**: The app will display:
-   - Detected emotions with percentages
-   - Words associated with each emotion
-   - Overall confidence and accuracy scores
-   - Visual charts representing the analysis
-
-## Available Scripts
-
-- `npm run dev` - Start development server with Turbopack
-- `npm run build` - Build the application for production
-- `npm run start` - Start the production server
-- `npm run lint` - Run ESLint for code quality checks
-
-## Project Structure
-
-```
-sentiment-app/
-├── src/
-│   ├── app/          # Next.js app router pages
-│   ├── const/        # Constants and configuration
-│   ├── helper/       # Utility functions
-│   ├── types/        # TypeScript type definitions
-│   └── ui/           # Reusable UI components
-├── public/           # Static assets
-├── package.json      # Dependencies and scripts
-└── README.md         # This file
-```
-
-## Configuration
-
-### Backend URL
-
-To change the backend API URL, edit `src/const/constant.ts`:
-
-```typescript
-export const BACKEND_URL = "http://your-backend-url:port";
-```
-
-### Styling
-
-The app uses Tailwind CSS for styling. You can customize the theme by modifying the Tailwind configuration files.
-
-## Deployment
-
-### Build for Production
-
-```bash
-npm run build
-```
-
-### Deploy to Vercel
-
-The easiest way to deploy is using [Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme):
-
-1. Push your code to GitHub
-2. Connect your repository to Vercel
-3. Deploy with zero configuration
-
-### Other Deployment Options
-
-- **Netlify**: Build command: `npm run build`, Publish directory: `out`
-- **Docker**: Create a Dockerfile for containerized deployment
-- **AWS/GCP/Azure**: Use their respective Next.js hosting services
-
-## Troubleshooting
-
-### Common Issues
-
-1. **"Failed to fetch" error**: Ensure your backend API is running on port 8000
-2. **Build errors**: Check that all dependencies are installed correctly
-3. **TypeScript errors**: Run `npm run lint` to identify and fix issues
-
-### Backend Connection Issues
-
-If you're having trouble connecting to the backend:
-
-1. Verify the backend is running on `http://127.0.0.1:8000`
-2. Check that the `/api/sentiment-analysis` endpoint is available
-3. Ensure CORS is configured on the backend to allow requests from `http://localhost:3000`
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature-name`
-3. Commit your changes: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin feature-name`
-5. Open a pull request
-
-## License
-
-This project is licensed under the MIT License.
-
-## Support
-
-If you encounter any issues or have questions, please:
-
-1. Check the troubleshooting section above
-2. Search existing issues on GitHub
-3. Create a new issue with detailed information about your problem
+- 🔄 **Auto-deployment** - Automated installation and setup
+- 📈 **Real-time Updates** - Live sentiment analysis results
 
 ---
 
+**Happy analyzing! 🚀**
